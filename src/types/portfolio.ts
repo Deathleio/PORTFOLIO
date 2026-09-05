@@ -1,21 +1,29 @@
 export interface Project {
   id: string;
   title: string;
-  subtitle: string;
-  description: string;
-  category: 'AI & Vision' | 'NLP & Full-Stack';
-  stack: string[];
+  shortTitle: string;
+  tagline: string;
+  simpleExplanation: string;
+  technicalExplanation: string;
+  realWorldImpact: string;
+  category: 'AI & Healthcare' | 'NLP & Misinformation';
+  badge: string;
+  highlight: string;
+  hostedOn: string;
   metrics: string;
+  stack: string[];
   features: string[];
   technicalChallenges: {
     challenge: string;
     solution: string;
   }[];
-  githubUrl?: string;
-  liveUrl?: string;
-  hostedOn: string;
-  badge: string;
-  highlight: string;
+  simulationSteps: {
+    title: string;
+    detail: string;
+    iconType: string;
+  }[];
+  githubUrl: string;
+  liveUrl: string;
 }
 
 export interface SkillCategory {
@@ -23,7 +31,6 @@ export interface SkillCategory {
   description: string;
   skills: {
     name: string;
-    icon?: string;
   }[];
 }
 
@@ -33,6 +40,7 @@ export interface Experience {
   location: string;
   period: string;
   highlights: string[];
+  plainEnglishSummary: string;
   researchNote?: string;
 }
 

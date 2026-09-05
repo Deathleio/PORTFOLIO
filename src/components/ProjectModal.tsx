@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, ExternalLink, CheckCircle2, AlertTriangle, Lightbulb, Server, Sparkles } from 'lucide-react';
+import { X, ExternalLink, CheckCircle2, AlertTriangle, Lightbulb, Sparkles } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import type { Project } from '../types/portfolio';
 
@@ -26,51 +26,58 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-zinc-950/85 backdrop-blur-sm overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-[#211E1C]/60 backdrop-blur-xs overflow-y-auto">
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-2xl bg-zinc-900 border border-zinc-700 rounded-2xl shadow-2xl overflow-hidden z-10 my-8">
+      <div className="relative w-full max-w-2xl bg-[#FFFFFF] border border-[#D8D0C5] rounded-3xl shadow-2xl overflow-hidden z-10 my-8">
         
         {/* Header */}
-        <div className="p-5 sm:p-6 border-b border-zinc-800 bg-zinc-950 flex items-start justify-between gap-4">
+        <div className="p-6 border-b border-[#E6E0D6] bg-[#FAF8F5] flex items-start justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-semibold bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 mb-2">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-xs font-semibold bg-[#BA5C44]/10 text-[#BA5C44] mb-2">
               <Sparkles className="w-3.5 h-3.5" />
               {project.badge}
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold text-zinc-100">{project.title}</h2>
-            <p className="text-xs sm:text-sm text-zinc-400 mt-1">{project.subtitle}</p>
+            <h2 className="text-xl sm:text-2xl font-bold font-editorial text-[#211E1C]">{project.title}</h2>
+            <p className="text-xs sm:text-sm text-[#6E675F] mt-1">{project.tagline}</p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 rounded-lg bg-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors"
-            title="Close modal"
+            className="p-2 rounded-xl bg-[#FFFFFF] border border-[#D8D0C5] text-[#5C554E] hover:text-[#211E1C] transition-colors cursor-pointer"
+            title="Close"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-5 sm:p-6 space-y-6 max-h-[70vh] overflow-y-auto">
+        <div className="p-6 space-y-6 max-h-[70vh] overflow-y-auto">
           
           <div>
-            <h3 className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Overview</h3>
-            <p className="text-sm text-zinc-300 leading-relaxed bg-zinc-950 p-4 rounded-xl border border-zinc-800">
-              {project.description}
+            <h3 className="text-[11px] font-bold text-[#8A8177] uppercase tracking-wider mb-2">Plain-English Summary</h3>
+            <p className="text-xs sm:text-sm text-[#3E3A36] leading-relaxed bg-[#FAF8F5] p-4 rounded-2xl border border-[#E6E0D6]">
+              {project.simpleExplanation}
             </p>
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Architecture & Technical Challenges</h3>
+            <h3 className="text-[11px] font-bold text-[#8A8177] uppercase tracking-wider mb-2">Technical Implementation</h3>
+            <p className="text-xs sm:text-sm text-[#3E3A36] leading-relaxed bg-[#FAF8F5] p-4 rounded-2xl border border-[#E6E0D6]">
+              {project.technicalExplanation}
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-[11px] font-bold text-[#8A8177] uppercase tracking-wider mb-3">Technical Challenges & Solutions</h3>
             <div className="space-y-3">
               {project.technicalChallenges.map((tc, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-zinc-950 border border-zinc-800 space-y-2.5">
-                  <div className="flex items-start gap-2 text-xs font-semibold text-amber-300">
-                    <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <div key={idx} className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E6E0D6] space-y-2 text-xs">
+                  <div className="flex items-start gap-2 font-semibold text-[#BA5C44]">
+                    <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
                     <span>Challenge: {tc.challenge}</span>
                   </div>
-                  <div className="flex items-start gap-2 text-xs text-zinc-300 pt-2 border-t border-zinc-800">
-                    <Lightbulb className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2 text-[#3E3A36] pt-2 border-t border-[#E6E0D6]">
+                    <Lightbulb className="w-4 h-4 text-[#5A6B52] shrink-0 mt-0.5" />
                     <span>Solution: {tc.solution}</span>
                   </div>
                 </div>
@@ -79,11 +86,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Core Features</h3>
+            <h3 className="text-[11px] font-bold text-[#8A8177] uppercase tracking-wider mb-3">Core Deliverables</h3>
             <ul className="space-y-2">
               {project.features.map((feat, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs text-zinc-300 bg-zinc-950 p-2.5 rounded-lg border border-zinc-800">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <li key={idx} className="flex items-start gap-2.5 text-xs text-[#3E3A36] bg-[#FAF8F5] p-2.5 rounded-xl border border-[#E6E0D6]">
+                  <CheckCircle2 className="w-4 h-4 text-[#5A6B52] shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </li>
               ))}
@@ -91,12 +98,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           </div>
 
           <div>
-            <h3 className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-2">Technologies Used</h3>
+            <h3 className="text-[11px] font-bold text-[#8A8177] uppercase tracking-wider mb-2">Verified Tech Stack</h3>
             <div className="flex flex-wrap gap-1.5">
               {project.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 rounded text-xs font-mono bg-zinc-950 text-zinc-300 border border-zinc-800"
+                  className="px-2.5 py-1 rounded-md text-xs font-mono bg-[#FAF8F5] text-[#211E1C] border border-[#D8D0C5]"
                 >
                   {tech}
                 </span>
@@ -104,21 +111,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             </div>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-zinc-950 border border-zinc-800 text-xs flex items-center justify-between">
-            <div className="flex items-center gap-2 text-zinc-300 font-medium">
-              <Server className="w-4 h-4 text-indigo-400" />
-              <span>Deployment: <strong className="text-zinc-100">{project.hostedOn}</strong></span>
-            </div>
-            <span className="text-[11px] text-emerald-400 font-mono">Live</span>
-          </div>
-
         </div>
 
         {/* Footer */}
-        <div className="p-4 sm:p-5 border-t border-zinc-800 bg-zinc-950 flex items-center justify-between gap-3">
+        <div className="p-4 sm:p-5 border-t border-[#E6E0D6] bg-[#FAF8F5] flex items-center justify-between gap-3">
           <button
             onClick={onClose}
-            className="px-4 py-2 rounded-lg text-xs font-medium text-zinc-400 hover:text-white bg-zinc-900 hover:bg-zinc-800 transition-colors"
+            className="px-4 py-2 rounded-xl text-xs font-medium text-[#5C554E] hover:text-[#211E1C] bg-[#FFFFFF] border border-[#D8D0C5] transition-colors cursor-pointer"
           >
             Close
           </button>
@@ -129,9 +128,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-medium text-zinc-300 bg-zinc-900 hover:bg-zinc-800 border border-zinc-700/80 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-medium text-[#211E1C] bg-[#FFFFFF] hover:bg-[#FAF8F5] border border-[#D8D0C5] transition-colors"
               >
-                <GithubIcon className="w-4 h-4" />
+                <GithubIcon className="w-3.5 h-3.5" />
                 Source Code
               </a>
             )}
@@ -140,9 +139,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold text-zinc-900 bg-zinc-100 hover:bg-white transition-all shadow-sm"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-[#FFFFFF] bg-[#BA5C44] hover:bg-[#9B452F] transition-all shadow-xs"
               >
-                <ExternalLink className="w-3.5 h-3.5 text-zinc-900" />
+                <ExternalLink className="w-3.5 h-3.5" />
                 Launch Live App
               </a>
             )}
