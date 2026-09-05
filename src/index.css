@@ -6,6 +6,13 @@
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     background-color: #F8F5F0;
     color: #211E1C;
+    overflow-x: hidden;
+  }
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -21,26 +28,68 @@
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Subtle Wabi-Sabi Paper Texture Gradient */
+/* 60fps GPU Hardware-Accelerated Ambient Animations (Safe for 2GB Mobile RAM) */
+@keyframes zen-drift-1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(30px, 40px, 0) scale(1.08);
+  }
+}
+
+@keyframes zen-drift-2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-35px, -25px, 0) scale(1.06);
+  }
+}
+
+@keyframes zen-drift-3 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(25px, -30px, 0) scale(1.1);
+  }
+}
+
+.animate-zen-drift-1 {
+  animation: zen-drift-1 16s ease-in-out infinite;
+}
+
+.animate-zen-drift-2 {
+  animation: zen-drift-2 20s ease-in-out infinite;
+}
+
+.animate-zen-drift-3 {
+  animation: zen-drift-3 18s ease-in-out infinite;
+}
+
+/* Mobile & Touch Optimizations */
 .japandi-paper {
   background-color: #FFFFFF;
   border: 1px solid #E6E0D6;
-  box-shadow: 0 1px 3px rgba(33, 30, 28, 0.04), 0 6px 16px rgba(33, 30, 28, 0.02);
+  box-shadow: 0 1px 3px rgba(33, 30, 28, 0.04), 0 4px 12px rgba(33, 30, 28, 0.02);
 }
 
 .japandi-card-hover {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.japandi-card-hover:hover {
-  border-color: #D1C7B8;
-  box-shadow: 0 10px 25px -5px rgba(33, 30, 28, 0.07), 0 8px 10px -6px rgba(33, 30, 28, 0.04);
-  transform: translateY(-2px);
+@media (hover: hover) and (pointer: fine) {
+  .japandi-card-hover:hover {
+    border-color: #D1C7B8;
+    box-shadow: 0 10px 25px -5px rgba(33, 30, 28, 0.07), 0 8px 10px -6px rgba(33, 30, 28, 0.04);
+    transform: translateY(-2px);
+  }
 }
 
-/* Custom Minimal Scrollbar */
+/* Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: #F8F5F0;
