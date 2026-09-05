@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, ArrowRight, Sparkles } from 'lucide-react';
+import { Download, ArrowRight, Mail } from 'lucide-react';
 import { personalInfo, recruiterHighlights } from '../data/portfolioData';
 
 interface HeroProps {
@@ -55,11 +55,11 @@ export const Hero: React.FC<HeroProps> = ({ isTechMode }) => {
           </a>
 
           <a
-            href="#demo"
+            href="#contact"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-[#211E1C] bg-[#FFFFFF] hover:bg-[#F3EFEA] border border-[#D8D0C5] transition-all shadow-2xs active:scale-[0.98]"
           >
-            <Sparkles className="w-4 h-4 text-[#BA5C44]" />
-            Try Interactive AI Demo
+            <Mail className="w-4 h-4 text-[#BA5C44]" />
+            Get In Touch
           </a>
 
           <a

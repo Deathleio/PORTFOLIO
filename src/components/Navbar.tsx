@@ -22,7 +22,6 @@ export const Navbar: React.FC<NavbarProps> = ({ isTechMode, setIsTechMode }) => 
 
   const navLinks = [
     { name: 'Projects', href: '#projects' },
-    { name: 'Interactive Demo', href: '#demo' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
@@ -70,7 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isTechMode, setIsTechMode }) => 
           {/* Plain English vs Tech View Toggle */}
           <button
             onClick={() => setIsTechMode(!isTechMode)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium border border-[#D8D0C5] bg-[#FFFFFF] hover:bg-[#F3EFEA] text-[#211E1C] transition-all shadow-2xs"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-medium border border-[#D8D0C5] bg-[#FFFFFF] hover:bg-[#F3EFEA] text-[#211E1C] transition-all shadow-2xs cursor-pointer"
             title="Toggle between recruiter-friendly and technical explanation"
           >
             <Sparkles className="w-3 h-3 text-[#BA5C44]" />

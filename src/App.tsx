@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { InteractiveSimulator } from './components/InteractiveSimulator';
 import { ProjectShowcase } from './components/ProjectShowcase';
 import { SkillsSection } from './components/SkillsSection';
 import { ExperienceSection } from './components/ExperienceSection';
@@ -23,7 +22,6 @@ export const App: React.FC = () => {
       {/* Main Sections */}
       <main className="relative z-0">
         <Hero isTechMode={isTechMode} />
-        <InteractiveSimulator />
         <ProjectShowcase isTechMode={isTechMode} />
         <SkillsSection />
         <ExperienceSection isTechMode={isTechMode} />
